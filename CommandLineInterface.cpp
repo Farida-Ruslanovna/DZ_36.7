@@ -202,6 +202,7 @@ void CommandLineInterface::callPM(string message)
 	if (_username == _PMDest)
 	{
 		cout << "self-message" << endl;
+		return; 
 	}
 	if (!_db.addPrivateMessage(_username, _PMDest, message))
 	{
@@ -241,4 +242,5 @@ void CommandLineInterface::showCountPM() {
 	vector<Message> pm = _db.getPrivateMessage(_currentLoginID);
 	int countpm = pm.size();
 	if (countpm)	cout << "You have " << pm.size() << " private messages." << endl;
+
 }
